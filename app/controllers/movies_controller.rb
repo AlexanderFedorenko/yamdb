@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   # GET /movies/new
   def new
     @movie = Movie.new
+    @movie_image = @movie.movie_images.build
   end
 
   # GET /movies/1/edit
@@ -23,7 +24,10 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
 
-    if @movie.save
+    if @movie.save and params[:movie_images]
+      params[:movie_images]['image'].each do |a|
+        @movie_image = @movie.movie_images.create!(:image => a)
+      end
       redirect_to @movie, notice: 'Movie was successfully created.'
     else
       render :new
@@ -49,6 +53,7 @@ class MoviesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
       @movie = Movie.find(params[:id])
+      @movie_images = @movie.movie_images.all
     end
 
     # Only allow a trusted parameter "white list" through.

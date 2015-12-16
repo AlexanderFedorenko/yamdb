@@ -13,6 +13,11 @@
   %b Description:
   = @movie.description
 
+  - @movie_images.each do |image|
+    %p
+      = image_tag image.image_url(:thumb)
+      = link_to "Edit Image", edit_movie_image_path(image)
+
 = link_to 'Edit', edit_movie_path(@movie)
 \|
 = link_to 'Back', movies_path

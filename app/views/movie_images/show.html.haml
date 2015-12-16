@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Movie:
+  = @movie_image.movie_id
+%p
+  %b Image:
+  = @movie_image.image
+
+= link_to 'Edit', edit_movie_image_path(@movie_image)
+\|
+= link_to 'Back', movie_images_path

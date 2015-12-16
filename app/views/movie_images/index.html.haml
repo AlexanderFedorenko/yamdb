@@ -1,0 +1,23 @@
+%h1 Listing movie_images
+
+%table
+  %thead
+    %tr
+      %th Movie
+      %th Image
+      %th
+      %th
+      %th
+
+  %tbody
+    - @movie_images.each do |movie_image|
+      %tr
+        %td= movie_image.movie_id
+        %td= movie_image.image
+        %td= link_to 'Show', movie_image
+        %td= link_to 'Edit', edit_movie_image_path(movie_image)
+        %td= link_to 'Destroy', movie_image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Movie image', new_movie_image_path

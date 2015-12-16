@@ -13,5 +13,10 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-!/log/.keep
 /tmp
+
+# Ignore uploaded images folder
+/public/uploads/*
+
+# Keep .keep files
+!.keep
