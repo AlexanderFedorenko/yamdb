@@ -24,9 +24,11 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
 
-    if @movie.save and params[:movie_images]
-      params[:movie_images]['image'].each do |a|
-        @movie_image = @movie.movie_images.create!(:image => a)
+    if @movie.save
+      if params[:movie_images]
+        params[:movie_images]['image'].each do |a|
+          @movie_image = @movie.movie_images.create!(:image => a)
+        end
       end
       redirect_to @movie, notice: 'Movie was successfully created.'
     else
@@ -58,6 +60,6 @@ class MoviesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def movie_params
-      params.require(:movie).permit(:title, :year, :director, :description)
+      params.require(:movie).permit(:title, :year, :director, :description, :cover)
     end
 end

@@ -1,6 +1,10 @@
 %p#notice= notice
 
 %p
+  = image_tag @movie.cover(:display)
+  = link_to "Edit Cover", edit_movie_image_path(@movie.cover)
+
+%p
   %b Title:
   = @movie.title
 %p
