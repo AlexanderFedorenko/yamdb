@@ -21,11 +21,19 @@ gem 'turbolinks'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# undefined method "register_preprocessor" workaround
+# https://github.com/Semantic-Org/Semantic-UI-Rails-LESS/issues/12#issuecomment-165934757
+gem 'sprockets-rails', '<=2.3.3'
+
 # Use HAML for templates
 gem 'haml-rails'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+# Front-end gems
+gem 'less-rails-semantic_ui', '2.1.6'
+gem 'autoprefixer-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
