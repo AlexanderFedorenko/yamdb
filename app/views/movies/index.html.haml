@@ -1,27 +1,13 @@
-%h1 Listing movies
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Year
-      %th Director
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @movies.each do |movie|
-      %tr
-        %td= movie.title
-        %td= movie.year
-        %td= movie.director
-        %td= movie.description
-        %td= link_to 'Show', movie
-        %td= link_to 'Edit', edit_movie_path(movie)
-        %td= link_to 'Destroy', movie, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Movie', new_movie_path
+.ui.link.cards
+  - @movies.each do |movie|
+    .card
+      = link_to image_tag(movie.cover_url(:display)), movie_path(movie), class: 'image'
+      .content
+        .header
+          = link_to movie.title, movie_path(movie)
+        .meta
+          = movie.year
+      .extra.content
+        %i.picture.icon
+        = movie.movie_images.count
+        = 'image'.pluralize movie.movie_images.count

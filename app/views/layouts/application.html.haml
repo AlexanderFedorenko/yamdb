@@ -23,9 +23,12 @@
       .ui.container
         .header.item
           = image_tag 'logo.png', class: 'logo'
-        = link_to root_url, class: 'item' do
+        = link_to movies_path, class: 'item' do
           %i.film.icon
           Movies
+        = link_to new_movie_path, class: 'item' do
+          %i.plus.icon
+          New Movie
 
     .ui.main.container
       = yield

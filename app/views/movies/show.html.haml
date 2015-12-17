@@ -1,7 +1,7 @@
 %p#notice= notice
 
 %p
-  = image_tag @movie.cover(:display)
+  = image_tag @movie.cover_url(:display)
   = link_to "Edit Cover", edit_movie_image_path(@movie.cover)
 
 %p
