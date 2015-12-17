@@ -2,8 +2,6 @@
 
 %p
   = image_tag @movie.cover_url(:display)
-  - if @movie.cover.present?
-    = link_to "Edit Cover", edit_movie_image_path(@movie.cover)
 
 %p
   %b Title:
